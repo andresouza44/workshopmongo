@@ -22,7 +22,8 @@ public class PostService implements Serializable {
     }
 
     public List<Post> findByTilte(String text){
-        return repository.findByTitleContainingIgnoreCase(text);
+        return  repository.searchTitle(text);
+        //return repository.findByTitleContainingIgnoreCase(text);
 
     }
 

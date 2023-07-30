@@ -1,29 +1,44 @@
 package com.andremartins.workshopmongo.config;
 
+import com.andremartins.workshopmongo.domain.Post;
 import com.andremartins.workshopmongo.domain.User;
+import com.andremartins.workshopmongo.repositories.PostRepository;
 import com.andremartins.workshopmongo.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Configuration;
 
-import java.util.ArrayList;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Arrays;
+import java.util.List;
 
 @Configuration
 public class Instantiation implements CommandLineRunner {
 
     @Autowired
-    UserRepository repository;
+    private UserRepository userRepository;
+
+    @Autowired
+    private PostRepository postRepository;
 
     @Override
     public void run(String... args) throws Exception {
-        repository.deleteAll();
+        userRepository.deleteAll();
+        postRepository.deleteAll();
 
-        User maria=new User(null,"Maria Brown","maria@gmail.com");
-        User alex =new User(null,"Alex Green","alex@gmail.com");
-        User bob =new User(null,"BobGrey","bob@gmail.com");
+        DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
-        repository.saveAll(Arrays.asList(maria,alex,bob));
+        User maria = new User(null, "Maria Brown", "maria@gmail.com");
+        User alex = new User(null, "Alex Green", "alex@gmail.com");
+        User bob = new User(null, "BobGrey", "bob@gmail.com");
+
+        userRepository.saveAll(Arrays.asList(maria, alex, bob));
+
+        Post p1 = new Post(null, LocalDate.parse("21/06/2018", fmt), "Partiu viagem", "Vou viajar para São Paulo. Abraços!", maria);
+        Post p2 = new Post(null, LocalDate.parse("23/03/2018", fmt), "Bom dia", "Acordei feliz hoje!", maria);
+
+        postRepository.saveAll(Arrays.asList(p1, p2));
 
     }
 }

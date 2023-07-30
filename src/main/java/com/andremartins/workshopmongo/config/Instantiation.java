@@ -2,6 +2,7 @@ package com.andremartins.workshopmongo.config;
 
 import com.andremartins.workshopmongo.domain.Post;
 import com.andremartins.workshopmongo.domain.User;
+import com.andremartins.workshopmongo.dto.AuthorDto;
 import com.andremartins.workshopmongo.repositories.PostRepository;
 import com.andremartins.workshopmongo.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,8 +36,8 @@ public class Instantiation implements CommandLineRunner {
 
         userRepository.saveAll(Arrays.asList(maria, alex, bob));
 
-        Post p1 = new Post(null, LocalDate.parse("21/06/2018", fmt), "Partiu viagem", "Vou viajar para São Paulo. Abraços!", maria);
-        Post p2 = new Post(null, LocalDate.parse("23/03/2018", fmt), "Bom dia", "Acordei feliz hoje!", maria);
+        Post p1 = new Post(null, LocalDate.parse("21/06/2018", fmt), "Partiu viagem", "Vou viajar para São Paulo. Abraços!", new AuthorDto(maria));
+        Post p2 = new Post(null, LocalDate.parse("23/03/2018", fmt), "Bom dia", "Acordei feliz hoje!",new AuthorDto(maria));
 
         postRepository.saveAll(Arrays.asList(p1, p2));
 

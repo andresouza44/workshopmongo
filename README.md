@@ -1,16 +1,16 @@
 Projeto MongoDB com Spring Boot
 
-? Objetivos do Projeto
+ðŸ’» Objetivos do Projeto
 
 
-- Compreender as principais diferenças entre paradigma orientado adocumentos e relacional
-- Implementar operações de CRUD
-- Implementar associações entre objetos: Objetos aninhados ,Referências
+- Compreender as principais diferenÃ§as entre paradigma orientado adocumentos e relacional
+- Implementar operaÃ§Ãµes de CRUD
+- Implementar associaÃ§Ãµes entre objetos: Objetos aninhados ,ReferÃªncias
 - Realizar consultas com Spring Data e MongoRepository
 
         
 
-? Tecnologias
+ðŸš€ Tecnologias
 
 - Java 17
 - Spring Boot 3
